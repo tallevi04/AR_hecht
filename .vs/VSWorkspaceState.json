@@ -1,0 +1,19 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\work",
+    "\\work\\src",
+    "\\work\\src\\main",
+    "\\work\\src\\main\\java",
+    "\\work\\src\\main\\java\\com",
+    "\\work\\src\\main\\java\\com\\google",
+    "\\work\\src\\main\\java\\com\\google\\ar",
+    "\\work\\src\\main\\java\\com\\google\\ar\\core",
+    "\\work\\src\\main\\java\\com\\google\\ar\\core\\codelab",
+    "\\work\\src\\main\\java\\com\\google\\ar\\core\\codelab\\cloudanchor",
+    "\\work\\src\\main\\res",
+    "\\work\\src\\main\\res\\layout"
+  ],
+  "SelectedNode": "\\work\\src\\main\\res\\layout\\activity_main.xml",
+  "PreviewInSolutionExplorer": false
+}
