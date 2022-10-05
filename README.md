@@ -144,6 +144,23 @@ Note : All the customization will be done In the work directory. Helper director
 ##### •	DetailsFragment.Java is handling the functionality for this box.
 ##### •	Url loader will load the url when view more is pressed and the user will be redirected to the website link.
 
+## Possible Error’s and How to Resolve them
+
+1)	**ERROR_CLOUD_ID_NOT_FOUND** Resolving failed because the ARCore Cloud Anchor API could not find the provided Cloud Anchor ID.
+2)	**ERROR_HOSTING_DATASET_PROCESSING_FAILED** Hosting failed because the server could not successfully process the dataset for the given anchor. Try again after the device has gathered more data from the environment.
+3)	**ERROR_HOSTING_SERVICE_UNAVAILABLE** The ARCore Cloud Anchor API was unreachable. This can happen for a number of reasons. The device might be in airplane mode or may not have a working Internet connection. The request sent to the server might have timed out with no response. There might be a bad network connection, DNS unavailability, firewall issues, or anything else that might affect the device's ability to connect to the ARCore Cloud Anchor API.
+4)	**ERROR_INTERNAL** A hosting or resolving task for this anchor finished with an internal error. The app should not attempt to recover from this error.
+5)	**ERROR_NOT_AUTHORIZED** The authorization provided by the application is not valid. The Google Cloud project may not have enabled the ARCore Cloud Anchor API, or the operation you are trying to perform is not allowed. If using API key authorization: the API key in the manifest is invalid, unauthorized or missing. It may also fail if the API key is restricted to a set of apps not including the current one.
+a.	If using keyless authorization: you have failed to create an OAuth client.
+b.	Google Play Services isn't installed, is too old, or is malfunctioning for some reason (e.g. services killed due to memory pressure).
+6)	**ERROR_RESOLVING_SDK_VERSION_TOO_NEW**	The Cloud Anchor could not be resolved because the SDK version used to resolve the anchor is newer than, and thus incompatible with, the version used to host it.
+7)	**ERROR_RESOLVING_SDK_VERSION_TOO_OLD** The Cloud Anchor could not be resolved because the SDK version used to resolve the anchor is older than, and thus incompatible with, the version used to host it.
+8)	**ERROR_RESOURCE_EXHAUSTED** The application has exhausted the request quota allotted to the given Google Cloud project. You should request additional quota for the ARCore Cloud Anchor API for your project from the Google Developers Console.
+9)	**NONE** The anchor is purely local. It has never been hosted using hostCloudAnchor(), and has not been resolved using resolveCloudAnchor().
+10)	**SUCCESS** A hosting or resolving task for this anchor completed successfully.
+11)	**TASK_IN_PROGRESS** A hosting or resolving task for the anchor is in progress. Once the task completes in the background, the anchor will get a new cloud state after the next call to Session.update().
+
+
 
 
 
