@@ -67,5 +67,25 @@ Note : All the customization will be done In the work directory. Helper director
 ##### onClearButtonPressd() is used to clear the anchor from the scene when it was rendered
 ![image](https://user-images.githubusercontent.com/62984042/194017989-1f4257a4-285a-41ed-bd09-bd803401a9a1.png)
 
+## Firebase
+### How to work with firebase for sharing hosted anchor to Multiple devices
+##### SignIn to Firebase with your Gmail (Keep the Browser open to see if the project was created from the Android Studio)
+##### •	Open the code in Android Studio and head to Tools -> Firebase Panel will pop from the side.
+##### •	Select Realtime Database
+##### •	Connect to Firebase
+##### •	Select Work Module
+##### •	Press OK ( Now you will see connect dialog)
+##### •	Now add real time database 
+![image](https://user-images.githubusercontent.com/62984042/194018569-7d4f97b4-cb69-4bab-80be-ac604572cb66.png)
+##### •	In the dialog that pops up, select work from the Target module drop-down, then click Accept Changes. This will add google-services.json file in work directory.
+![image](https://user-images.githubusercontent.com/62984042/194018623-22b675a5-1c03-430d-aebe-bd9ca7c973c2.png)
+##### •	In Work module build.gradle file find and remove (xxxx from the) dependencies {implementation 'com.google.firebase:firebase-database:xxxx'}
+
+## 3D Model Randering
+##### This class is used in both Admin and Client side and it is responsible for rendering our model in the real world and it will be responsible for shading of the 3D Models you can change its material properties here.
+![image](https://user-images.githubusercontent.com/62984042/194019362-98d45990-397f-48d7-8ba5-353eb03e8dc0.png)
+### Project location of our 3D Models(helper/src/main/assets/models).
+![image](https://user-images.githubusercontent.com/62984042/194019459-9c579cf2-3e04-44ec-908b-926fad14523e.png)
+
 
 
