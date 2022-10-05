@@ -42,3 +42,30 @@ Note : All the customization will be done In the work directory. Helper director
 ##### 3. Copy the SHA-1 fingerprint into the SHA-1 certificate fingerprint field in Google Cloud.
 
 ### How to Configure ARcore Session
+##### Here we will modify the app to create a hosted anchor on a user tap instead of a regular one. To do that, you will need to configure the ARCore Session to enable Cloud Anchors.
+![image](https://user-images.githubusercontent.com/62984042/194016905-1bb0eeb8-14b3-413e-997e-43920969bb75.png)
+### How to Create Hosted Anchor
+##### Here we will create a hosted anchor that will be uploaded to the ARCore Cloud Anchor Service.
+##### In CloudAnchorFragment.java two helper classes are called these would be responsible to create hosted anchor.
+![image](https://user-images.githubusercontent.com/62984042/194017022-636a95a5-bb04-4112-ba9e-60152022dfd6.png)
+##### •	SnackbarHelper.java ( helper/src/main/java)
+##### •	CloudAnchorManager.java ( helper/src/main/java)
+##### •	OnDrawFrame() Method will handle one tap per frame.
+![image](https://user-images.githubusercontent.com/62984042/194017141-15f470e6-8a18-48e9-bc06-6325e39ab13b.png)
+##### And in this method CloudAnchorManager.update () Obtain the current frame from ARSession and update the cloud anchor.
+
+### When app was Hosting Anchor
+##### User will see the app generated message at the bottom that the Anchor is being Hosted after Successfull configuration.
+![image](https://user-images.githubusercontent.com/62984042/194017708-da8d50c5-f69b-4592-9a28-7a8f48006188.png)
+
+### Hosted Anchor Cross check
+##### If user was prompted with Error message See ( Possible Errors below) while hosting.
+##### The app will generate a short code(ID) if the anchor was hosted Successfully. And user can resolve the Anchor by entering short Code.
+![image](https://user-images.githubusercontent.com/62984042/194017908-43f8614d-0173-4b6a-a1df-7caf6cc2a18b.png)
+
+### How to Clear Anchor from scene
+##### onClearButtonPressd() is used to clear the anchor from the scene when it was rendered
+![image](https://user-images.githubusercontent.com/62984042/194017989-1f4257a4-285a-41ed-bd09-bd803401a9a1.png)
+
+
+
