@@ -87,5 +87,63 @@ Note : All the customization will be done In the work directory. Helper director
 ### Project location of our 3D Models(helper/src/main/assets/models).
 ![image](https://user-images.githubusercontent.com/62984042/194019459-9c579cf2-3e04-44ec-908b-926fad14523e.png)
 
+## Methods and classed with application flow
+### Splash Screen
+![image](https://user-images.githubusercontent.com/62984042/194028556-a315f8b6-2216-4b70-bc47-d5be39ea4cf0.png)
+##### User will see a splash screen when entering the application
+##### • Make sure you are connected to the internet
+##### •	Now our SplashFragment.java  is triggered.
+##### •	This java class will inflate the layout fragment_splash.xml which contains all the UI/UX design of the screen. It will also trigger animations like(fade in) implemented on the logo.
+##### •	onCreate method is called when the fragment instance is created each time.
+
+### Home Screen/Menu
+![image](https://user-images.githubusercontent.com/62984042/194029248-1dbe1a17-1510-4be6-aa10-f9f1523874ac.png)
+##### •	User/Admin will see the Menu to login in.
+##### •	Admin is password protected and the password is stored in the firebase 
+##### •	User can enter without any restriction.
+##### •	HomeFragment.java is the class for home screen it will get/inflate fragment_home.xml which is the UI for homescreen.
+##### •	onClickListener() methods are used for the client choice, when pressed it will launch the next fragment or screen for the user or admin.
+##### •	CustomDialog() is used to get Admin credentials
+
+### Admin Hosting Anchor
+![image](https://user-images.githubusercontent.com/62984042/194029668-f2f27311-e318-4339-839a-500b48242d59.png)
+##### • Now here Application will ask for camera permissions and detect surface
+##### •	onResume() method is used to check if the device has ARcore functionality installed(if not download it from Google play store).
+##### •	In case you wonder what is GLES( OpenGL is a cross-platform graphics API that specifies a standard software interface for 3D graphics processing hardware. OpenGL ES is a flavor of the OpenGL specification intended for embedded devices.)
+##### •	onSurfaceCreated() method is used to show 3D model and shadow configurations.
+##### •	onDrawFrame() Frames are being controlled so that you only see the recently created frames it works on camera matrix, projection matrix, tracking plane surface(planeRenderer is a used for drawing 3D model and its shadows after surface detection)
+##### •	handleTap() will only restrict the application from creating multiple models and only single tap will work to Host the anchor
+##### •	onHostedAnchorAvailable() if every thing goes will from permessions to surface detection this method will host the generate the shortcode itself then push the anchor to the firebase.
+##### •	onResolveButtonPressed() this method is used by the Admin to get the hosted anchor from the firebase using the short code.
+#### Helper Classes Used to handle different Actions on User and Admin Side 
+##### •	CamerPermissionHelper.java from Helper directory will handle permission related task.
+##### •	CloudAnchorManager.java from Helper directory is a helper class to handle all the Cloud Anchors logic, and add a callback-like mechanism on top of the existing ARCore API.
+##### •	DisplayRotationHelper.java is a Helper class to track the display rotations. In particular, the 180 degree rotations are not notified by the onSurfaceChanged() callback, and thus they require listening to the android display events.
+##### •	FirebaseManager.java is used to store cloud Anchor ID’s.
+##### •	SnackbarHelper.java is a helper for resolving error messages as these messages will appear on the bottom of the screen. It is Useful for notifying errors, where no further interaction with the activity is possible.
+##### •	StorageManager.java is really important to understand as it is storing the Cloud Anchor ID’s on the local device.
+##### •	TapHelper.java will work as intermediate to detect taps using Android GestureDetector and pass the taps between UI thread and render thread. 
+##### •	TrackingStateHelper.java it will show all errors relate to person movement and enviornment both for admin and user.
+
+### Dialog box for hosting anchor for Admin
+![image](https://user-images.githubusercontent.com/62984042/194031135-edc1f41a-2591-4746-a784-776bd01cc6b2.png)
+##### •	Admin will add Name, Description, URL to the Hosted anchor so that when the user will augment the model he can see the Description and also check the Website link.
+##### •	Dialog.java will handle all the functionality for dialog box.
+##### •	shared_cloud_anchors that’s the Firebase Database table where the Hosted anchors are Stored.
+
+### Resolve Hosted Anchor( User )
+![image](https://user-images.githubusercontent.com/62984042/194031525-e9bb2156-10c7-42c7-a4ab-77f25fc1d683.png)
+##### •	Application will ask the user to enter the short code to resolve the anchor.
+##### •	Application will perform same steps to from permissions to surface detection to showing 3D models on its respective coordinates stored on the cloud.
+##### •	UserFragment.Java will perform this functionality.
+##### •	ResolveDialogFragment.java from the helper directory will apply validation for numeric digits for short code
+
+### Resolved Anchor Details
+![image](https://user-images.githubusercontent.com/62984042/194031833-07006a2c-57ef-47fd-a0de-074f3256b92d.png)
+##### •	Anchor is Resolved according to its short code
+##### •	DetailsFragment.Java is handling the functionality for this box.
+##### •	Url loader will load the url when view more is pressed and the user will be redirected to the website link.
+
+
 
 
